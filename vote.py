@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Dash-Voter
+BiblePay-Voter
 ----
 
 Mass vote on a proposal semi-anonymously
@@ -11,11 +11,11 @@ Mass vote on a proposal semi-anonymously
 import subprocess
 import argparse
 import json
-from config import dashd_path, datadir, masternodes
+from config import biblepayd_path, datadir, masternodes
 from random import randint, shuffle
 from time import sleep
 from sys import exit, argv
-print dashd_path, datadir
+print biblepayd_path, datadir
 
 
 if len(argv) == 2:
@@ -25,13 +25,10 @@ if len(argv) == 2:
 #vote yes somewhere between 70 and 100% of the time. This will average 85% the direction you want. 
 p = randint(700, 1000)
 
-#sleep multiple, sleep between 10 and 30 seconds per proposal
-s = randint(1, 3)
-
 # Called when a client sends a message
 def vote(proposal, yes_no, masternode):
     """
-    ./dash-cli --datadir=/Users/evan/.dash mnbudget vote-alias 1e477007d555f9f8919ecbe3b4c457b6f269184924771c0117fbb48751bf23d6 no flare_024
+    ./biblepay-cli --datadir=C:\\Users\\togo\\AppData\\Roaming\\BiblepayCore gobject vote-alias 1e477007d555f9f8919ecbe3b4c457b6f269184924771c0117fbb48751bf23d6 no MN1
     """
 
     r = randint(0, 1000)
@@ -42,15 +39,16 @@ def vote(proposal, yes_no, masternode):
     b = yes_no
 
     print proposal, (a if r<p else b)
-    print dashd_path + " --datadir=" + datadir + " mnbudget vote-alias " + proposal + " " + (a if r<p else b) + " " + masternode
-    subprocess.call(dashd_path + " --datadir=" + datadir + " mnbudget vote-alias " + proposal + " " + (a if r<p else b) + " " + masternode, shell=True)
+    print biblepayd_path + " --datadir=" + datadir + " gobject vote-alias " + proposal + " " + (a if r<p else b) + " " + masternode
+    subprocess.call(biblepayd_path + " --datadir=" + datadir + " gobject vote-alias " + proposal + " " + (a if r<p else b) + " " + masternode, shell=True)
 
 #vote anonymously
 
 shuffle(masternodes)
 for masternode in masternodes:
     vote(argv[1], argv[2], masternode)
-    sleep(randint(1, 10)*s)
+	#sleep between 1 to 10 minutes between masternode votes
+    sleep(randint(60, 600)) #seconds
 
 
 

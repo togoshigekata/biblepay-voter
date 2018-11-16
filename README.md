@@ -1,14 +1,22 @@
-Dash Voter
+BiblePay Voter
 ==============
 
-Dash private masternode voting
+BiblePay Private Masternode Voting
 
 Installation
 ------------
 
-Make sure dashd is running at least v12.1 (vote alias support), with a correctly configured masternode.conf. The masternode names in masternode.conf should match the masternodes listed config.py's "masternodes"
+Edit config.py with your environment variables and masternode names
+The masternode names should match the names listed in masternode.conf 
+
+To vote, make sure biblepayd is running 
+and then pass in proposal hash and voting paramaters to vote.py
 
 ```
-copy config.py.example config.py
 python vote.py proposal_hash yes|no
 ```
+
+------------
+
+Download Python for Windows:
+https://www.python.org/downloads/windows/
