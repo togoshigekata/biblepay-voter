@@ -17,6 +17,10 @@ and the word yes or no to vote for or against the proposal
 python vote.py proposal_hash yes|no
 ```
 
+NOTE: Votes randomly in your direction between 70 to 100% of the time
+
+NOTE: Sleeps randomly 1 to 10 minutes between votes
+
 ------------
 
 References:  
