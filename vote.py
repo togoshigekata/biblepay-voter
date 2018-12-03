@@ -39,8 +39,8 @@ def vote(proposal, yes_no, masternode):
     b = yes_no
 
     print proposal, (a if r<p else b)
-    print biblepayd_path + " --datadir=" + datadir + " gobject vote-alias " + proposal + " " + (a if r<p else b) + " " + masternode
-    subprocess.call(biblepayd_path + " --datadir=" + datadir + " gobject vote-alias " + proposal + " " + (a if r<p else b) + " " + masternode, shell=True)
+    print biblepayd_path + " --datadir=" + datadir + " gobject vote-alias " + proposal + " funding " + (a if r<p else b) + " " + masternode
+    subprocess.call(biblepayd_path + " --datadir=" + datadir + " gobject vote-alias " + proposal + " funding " + (a if r<p else b) + " " + masternode, shell=True)
 
 #vote anonymously
 
