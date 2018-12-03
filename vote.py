@@ -8,6 +8,14 @@ Mass vote on a proposal semi-anonymously
 
 """
 
+"""
+NOTE: You can run multiple instances of vote.py (one for each proposal hash),
+Example of shell (.sh) script commands to do this:
+screen -dm python vote.py 10c60d59c63fe8830bdf07605fed474c527fca890ace706ff4a5749392250107 yes
+screen -dm python vote.py 4c754c122ad91e7e5a85737ee98c59db2da0e080473cca8dbb21672c27127f43 yes
+screen -dm python vote.py 28d1a2c5685470f77e42f5c3ad4412780797e7a55e0df7200547a204b1524c23 yes
+"""
+
 import subprocess
 import argparse
 import json
